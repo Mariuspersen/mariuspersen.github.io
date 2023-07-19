@@ -1,0 +1,31 @@
+:root {
+    --main-color: #00cc00;
+    --secondary-color: #003300;
+    --text-color: #CCCCCC;
+    --main-background-color: #333333;
+    --secondary-background-color: #181818;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--main-background-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14;
+
+}
+
+h1 {
+    align-self: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+p {
+    align-self: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
