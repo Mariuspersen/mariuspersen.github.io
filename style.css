@@ -89,3 +89,36 @@ p {
     margin-right: auto;
     width: 40%;
 }
+.cv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.cv div {
+    padding: 10px;
+}
+
+.cv div h2 {
+    margin: 0;
+    align-self: center;
+    text-align: left;
+    width: 600px;
+}
+
+.cv div p {
+    margin: 0;
+    align-self: center;
+    text-align: left;
+    width: 600px;
+}
+
+.cv p {
+    margin: 0;
+    align-self: center;
+    text-align: left;
+    width: 600px;
+}
