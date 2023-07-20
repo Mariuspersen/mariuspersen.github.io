@@ -6,7 +6,6 @@
     --secondary-background-color: #181818;
 }
 
-
 html, body {
     margin: 0;
     scrollbar-width: none;
@@ -102,23 +101,31 @@ p {
     padding: 10px;
 }
 
+.cv p, div h2, div p {
+    width: 600px;
+}  
+
+@media (max-width: 600px) {
+    .cv p, div h2, div p {
+        width: 250px;
+    }  
+}
+
 .cv div h2 {
     margin: 0;
     align-self: center;
     text-align: left;
-    width: 600px;
+    
 }
 
 .cv div p {
     margin: 0;
     align-self: center;
     text-align: left;
-    width: 600px;
 }
 
 .cv p {
     margin: 0;
     align-self: center;
     text-align: left;
-    width: 600px;
 }
