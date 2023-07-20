@@ -60,5 +60,5 @@ project_btn.addEventListener('click', get_project);
 contact_btn.addEventListener('click', get_contact);
 cv_btn.addEventListener('click', get_cv);
 
-//get_home();
-get_cv();
+get_home();
+//get_cv();
