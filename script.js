@@ -23,33 +23,28 @@ async function get_and_execute_script(script_sel) {
 
 function get_home() {
     switch_lang = true;
-    cv_btn.innerText = "CV";
     get_and_set_content("home.html")
 }
 
 function get_about() {
     switch_lang = true;
-    cv_btn.innerText = "CV";
     get_and_set_content("about.html")
 }
 
 async function get_project() {
     switch_lang = true;
-    cv_btn.innerText = "CV";
     await get_and_set_content("projects.html")
     await get_and_execute_script("projects.js");
 }
 
 function get_contact() {
     switch_lang = true;
-    cv_btn.innerText = "CV";
     get_and_set_content("contact.html")
 }
 
 let switch_lang = true;
 function get_cv() {
     const lang_get = switch_lang ? "cv-eng.html" : "cv-nor.html";
-    cv_btn.innerText = switch_lang ? "CV - English" : "CV - Nor";
     get_and_set_content(lang_get);
     switch_lang = !switch_lang;
 }
