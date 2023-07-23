@@ -1,9 +1,11 @@
 :root {
-    --main-color: #00cc00;
+    --main-color: #009900;
     --secondary-color: #003300;
     --text-color: #CCCCCC;
     --main-background-color: #333333;
     --secondary-background-color: #181818;
+    --tertiary-background-color: #e7e7e7;
+    --invert: 1;
 }
 
 html,
@@ -58,6 +60,7 @@ ul a {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 ul a:hover {
@@ -68,7 +71,7 @@ ul {
     padding: 0;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-color: #181818;
+    background-color: var(--secondary-background-color);
     position: fixed;
     top: 0px;
     width: 100%;
@@ -91,6 +94,40 @@ p {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
+
+#footer a {
+    margin: 5px;
+}
+
+#github img {
+    width: 20px;
+    height: 20px;
+    filter: invert(var(--invert));
+}
+
+#email img {
+    width: 30px;
+    height: 30px;
+    filter: invert(var(--invert));
+}
+
+#darkmode {
+    margin-right: auto;
+}
+
+#darkmode img {
+    width: 20px;
+    height: 20px;
+    filter: invert(var(--invert));
 }
 
 .cv {

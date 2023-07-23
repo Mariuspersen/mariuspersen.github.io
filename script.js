@@ -2,8 +2,9 @@ const content = document.getElementById("content");
 const home_btn = document.getElementById("home");
 const about_btn = document.getElementById("about");
 const project_btn = document.getElementById("projects");
-const contact_btn = document.getElementById("contact");
 const cv_btn = document.getElementById("cv");
+const darkmode_btn = document.getElementById("darkmode");
+const css = document.documentElement.style;
 
 let play_warships;
 
@@ -37,11 +38,6 @@ async function get_project() {
     await get_and_execute_script("projects.js");
 }
 
-function get_contact() {
-    switch_lang = true;
-    get_and_set_content("contact.html")
-}
-
 let switch_lang = true;
 function get_cv() {
     const lang_get = switch_lang ? "cv-eng.html" : "cv-nor.html";
@@ -49,11 +45,27 @@ function get_cv() {
     switch_lang = !switch_lang;
 }
 
+function darkmode() {
+    let computed = getComputedStyle(document.documentElement);
+    let old_text = computed.getPropertyValue("--text-color")?.trim();
+    let old_back = computed.getPropertyValue("--main-background-color")?.trim();
+    let old_sec_back = computed.getPropertyValue("--secondary-background-color")?.trim();
+    let old_tert_back = computed.getPropertyValue("--tertiary-background-color")?.trim();
+    let old_invert = computed.getPropertyValue("--invert")?.trim();
+
+    let new_invert = old_invert == "0" ? "1" : "0";
+
+    css.setProperty("--text-color",old_back);
+    css.setProperty("--main-background-color",old_text);
+    css.setProperty("--secondary-background-color",old_tert_back);
+    css.setProperty("--tertiary-background-color",old_sec_back);
+    css.setProperty("--invert",new_invert);
+}
+
 home_btn.addEventListener('click', get_home);
 about_btn.addEventListener('click', get_about);
 project_btn.addEventListener('click', get_project);
-contact_btn.addEventListener('click', get_contact);
 cv_btn.addEventListener('click', get_cv);
+darkmode_btn.addEventListener('click',darkmode);
 
 get_home();
-//get_cv();
