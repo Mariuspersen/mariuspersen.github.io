@@ -7,6 +7,8 @@ const darkmode_btn = document.getElementById("darkmode");
 const css = document.documentElement.style;
 
 let play_warships;
+let lang_eng_btn;
+let lang_nor_btn;
 
 async function get_and_set_content(content_sel) {
     const res = await fetch(content_sel);
@@ -38,11 +40,9 @@ async function get_project() {
     await get_and_execute_script("projects.js");
 }
 
-let switch_lang = true;
-function get_cv() {
-    const lang_get = switch_lang ? "cv-eng.html" : "cv-nor.html";
-    get_and_set_content(lang_get);
-    switch_lang = !switch_lang;
+async function get_cv() {
+    await get_and_set_content("cv-eng.html");
+    await get_and_execute_script("cv.js");
 }
 
 function darkmode() {

@@ -176,3 +176,9 @@ div p {
     align-self: center;
     text-align: left;
 }
+
+#lang-eng, #lang-nor {
+    padding: 20px;
+    height: 24px;
+    cursor: pointer;
+}
