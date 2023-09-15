@@ -52,6 +52,8 @@ function darkmode() {
     let old_sec_back = computed.getPropertyValue("--secondary-background-color")?.trim();
     let old_tert_back = computed.getPropertyValue("--tertiary-background-color")?.trim();
     let old_invert = computed.getPropertyValue("--invert")?.trim();
+    let old_blog_background = computed.getPropertyValue("--blog-background-color")?.trim();
+    let old_blog_secondary_background = computed.getPropertyValue("--blog-background-secondary")?.trim();
 
     let new_invert = old_invert == "0" ? "1" : "0";
 
@@ -60,6 +62,8 @@ function darkmode() {
     css.setProperty("--secondary-background-color",old_tert_back);
     css.setProperty("--tertiary-background-color",old_sec_back);
     css.setProperty("--invert",new_invert);
+    css.setProperty("--blog-background-color",old_blog_secondary_background);
+    css.setProperty("--blog-background-secondary",old_blog_background);
 }
 
 home_btn.addEventListener('click', get_home);

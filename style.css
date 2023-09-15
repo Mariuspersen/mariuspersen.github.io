@@ -3,6 +3,8 @@
     --secondary-color: #003300;
     --text-color: #CCCCCC;
     --main-background-color: #333333;
+    --blog-background-color: #555555;
+    --blog-background-secondary: #AAAAAA;
     --secondary-background-color: #181818;
     --tertiary-background-color: #e7e7e7;
     --invert: 1;
@@ -80,7 +82,8 @@ ul {
 }
 
 h1,
-h2 {
+h2,
+h5 {
     align-self: center;
     text-align: center;
     margin-left: auto;
@@ -181,4 +184,36 @@ div p {
     padding: 20px;
     height: 24px;
     cursor: pointer;
+}
+
+#blog h2 {
+    text-align: center;
+    background-color: var(--secondary-background-color);
+    border-radius: 10px 10px 0px 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+
+#blog p {
+    text-align: left;
+    color: var(--text-color);
+    background-color: var(--blog-background-color);
+    border-radius: 0px 0px 10px 10px;
+    margin-top: 0;
+    padding: 10px;
+}
+
+#blog h5 {
+    text-align: center;
+    background-color: var(--secondary-background-color);
+    width: 600px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    display: block;
 }
