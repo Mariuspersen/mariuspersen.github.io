@@ -148,18 +148,28 @@ p {
 
 .cv p,
 div h2,
+#blog h5,
 div p {
     width: 600px;
 }
 
-@media (max-width: 600px) {
-
+@media (max-width: 700px) {
     .cv p,
     div h2,
+    #blog h5,
     div p {
         width: 250px;
     }
+
+    
 }
+
+@media (max-width: 820px) {
+    #footer {
+        flex-direction: column;
+    }
+}
+
 
 .cv div h2 {
     margin: 0;
@@ -209,7 +219,6 @@ div p {
 #blog h5 {
     text-align: center;
     background-color: var(--secondary-background-color);
-    width: 600px;
     margin-top: 0px;
     margin-bottom: 0px;
     padding-left: 10px;
