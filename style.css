@@ -49,6 +49,10 @@ iframe {
     margin-top: 6vh;
 }
 
+div a {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 a {
     color: var(--text-color);
