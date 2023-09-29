@@ -45,6 +45,16 @@ async function get_cv() {
     await get_and_execute_script("cv.js");
 }
 
+async function load_spinningwheel() {
+    await get_and_execute_script("projects.js");
+    add_spinningwheel_iframe_to_content();
+}
+
+async function load_boatgame() {
+    await get_and_execute_script("projects.js");
+    add_game_iframe_to_content();
+}
+
 function darkmode() {
     let computed = getComputedStyle(document.documentElement);
     let old_text = computed.getPropertyValue("--text-color")?.trim();
@@ -72,4 +82,23 @@ project_btn.addEventListener('click', get_project);
 cv_btn.addEventListener('click', get_cv);
 darkmode_btn.addEventListener('click',darkmode);
 
-get_home();
+const destination = document.location.href.split('/').pop();
+
+switch(destination) {
+    case "#spinningwheel":
+    case "#spinnehjul": {
+        load_spinningwheel();
+        break;
+    }
+    case "#boats":
+    case "#boatgame":
+    case "#game": {
+        load_boatgame();
+        break;
+    }
+
+    default: {
+        get_home();
+        break;
+    }
+}
