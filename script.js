@@ -96,7 +96,14 @@ switch(destination) {
         load_boatgame();
         break;
     }
-
+    case "#projects": {
+        get_project();
+        break;
+    }
+    case "#cv": {
+        get_cv();
+        break;
+    }
     default: {
         get_home();
         break;

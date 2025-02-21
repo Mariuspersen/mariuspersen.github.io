@@ -1,26 +1,86 @@
-<h1>Things I have worked on</h1>
-<p>
-    <h2>Picture Assistant</h2>
-    <p>Writing a electron app to take pictures with cameras of labels uses OCR to recognize the labels and match partnumber and serialnumbers from order</p>
-    <h2>Logfile Extracter</h2>
-    <p>C# CLI Tool that detects for USB insertion, grabs a zip archive and extracts a specific logfile, reading the contents and checking for failures</p>
-    <h2>UDI Flasher</h2>
-    <p>A Rust CLI tool for getting the latest builds and flashing them to USB sticks for software installation</p>
-    <H2>Product Planner</H2>
-    <p>A Node webserver for product planning, counting and display of different products. This webserver also does takt time and alerts when workers are supposed to have breaks. This project also included some ESP32's and some push buttons to make a control box for those who prefer physical buttons instead of a web interface to increment the count.</p>
-    <h2>Warships Game</h2>
-    <p>Also tried my hands on creating some video games, by far the most complete one is ShipGirlGame(Not the final name that's for sure). It's basically a attempt at making a turn based strategy game and this was the basic concept. I've yet to really have any creative ideas to expand on this game</p>
-    <p><a id="play-warships">You can try it out here</a></p>
-    <h2>String Builder Library</h2>
-    <p><a href="https://github.com/Mariuspersen/sb">SB</a> is a single header style library for C for string manipulation and is what I used to build a basic <a href="https://github.com/Mariuspersen/reminder">reminder</a> application</p>
-    <h2>Zed - A text editor written in Zig</h2>
-    <p><a href="https://github.com/Mariuspersen/Zed">Zed</a> is a text editor I started on recently to explore Zig more. It now has the bare minimum required for a file editor, it can open and save files as well as arrow navigation.</p>
-    <h2>Spinning Wheel</h2>
-    <p>We have a insentive program at my current workplace to improve certain things, and we pick winners every month that receive some type of reward at the end. This was a way to pick the winner. <a id="spin-wheel">You can try it out here</a></p>
-</p> 
-<h2>Current interests</h2>
-<p>
-    Right now I'm the process of learning various different system programming languages like C, Zig and Rust
-    On my <a href="https://github.com/Mariuspersen/">Github</a> I have a few clones of coreutils like cat to practise using these languages. 
-    C is really fun langugage to write code in, but can be annoying sometimes whenever it comes to memory allocation and working with strings, and to solve the latter I made a SB as mentioned above
-</p>
+<h1>Hobby Projects</h1>
+<div class="cv">
+    <div>
+        <h2>UEFI Bootloader and bare metal programming</h2>
+        <p>While this is far from finished, it is a working concept.</p>
+        <p>Zig is honestly amazing here, UEFI bindings are already in the standard library and makes it super easy to make UEFI applications.</p>
+        <p>So far, the bootloader puts the kernel in memory and jumps to it's entry point, virtual addressing is not setup</p>
+        <p>As for the freestanding binary, it doesn't do much yet, currently reading up how to get memory map from the bootloader.</p>
+        <p>A writer for UART is implemented, so characters can be written to the COM1 port.</p>
+        <p>Currently trying to figure out how to write to screen from a freestanding binary, this is pretty easy in legacy mode when booting into 32-bit mode first, where a pointer to VGA memory is provided, however this doesn't work in UEFI.</p>
+        <p>So current goal is to get the memory map and make a allocator</p>
+    </div>
+    <div>
+        <h2>Warships "Game" V2 with Raylib + Zig</h2>
+        <p>In a brilliant move that no software developer has ever done before, I decided I was too cool for P5.js and Javascript.</p>
+        <p>The result was learning how to make a game in Zig + Raylib, the end result didn't exactly end in a game but the foundations are there</p>
+        <p>Learned a lot during the making of this tech demo, if you could even call it that.</p>
+        <p>Especially enjoyed the process of making a SceneManager, a ConVar system with a working console, overwriting default malloc in C by injecting header files and exporting a Arena allocator from Zig to be used in C code.</p>
+        <p>Learning to make 3D Models in Crocotile 3D</p>
+        <p>Was also pretty happy about Resource manager concept, like the embedding of model files at compile time into the binary.</p>
+        <p>Since Zig is by default statically compiled, it resulted in a single binary with all the game files and everything, pretty neat.</p>
+        <p>I was honestly hoping to take this even further, to parse the .glb and shaders at compile time, but limitations with Raylib and Zig unable to run C code at comptime stopped me.</p>
+        <p>Part of me wants to revisit this, but create a game engine from scratch with SDL3, I think that will be fun.</p>
+    </div>
+    <div>
+        <h2>Zip Archive Extractor</h2>
+        <p>Got a little annoyed when trying to find a good library to extract Zip archives for use with Zig.</p>
+        <p>Pretty much all of them had a annoying build system or something annoying that turned me off.</p>
+        <p>So instead I ended up making my own simple Zip Archive Extractor in Zig.</p>
+        <p>Was actually a very easy thing to do, since the Zip Archive Standard is very simplistic and Zig already built in decompression and compression algorithms</p>
+    </div>
+    <div>
+        <h2>Concept for a new System Architecture and Instruction set</h2>
+        <p>After watching a bit too many youtube videos about system architecture and instruiction sets and some of their problems, I got a brilliant idea^tm</p>
+        <p>A current source of security problems and optimization problems for current architectures is the branch predictor, so a idea I had is what if made the branch predictor, completely unnessesary?</p>
+        <p>How, how could this be done? Well, since conditional jumps are the source problem, just remove them and replace them with conditional arithmatic!</p>
+        <p>That means removing jnz and replacing it with a jmp command, and then calculate the jmp address with conditional arithmatic instead</p>
+        <p>Something like incnz, (increment if not zero), addz (add if zero), xorz and all variations of these</p>
+        <p>Like this, you would never need to flush a pipelined CPU because there is no need for a branch predictor (I think)</p>
+        <p>If somehow someone who knows about System architectures sees this, I would love to know if this would actually be viable</p>
+        <br>
+        <p>So far as actually doing work on any of this, well I implemented one load instruction and promtly realised the gigantic task ahead of me.</p>
+        <p>If I ever find the motivation to work on this again, I would like to complete a minimum viable instruction set and emulator for this, and then make a assembler for it</p>
+    </div>
+    <div>
+        <h2>Picture Assistant</h2>
+        <p>Writing a electron app to take pictures with cameras of labels uses OCR to recognize the labels and match partnumber and serialnumbers from order</p>
+    </div>
+    <div>
+        <h2>Logfile Extracter</h2>
+        <p>C# CLI Tool that detects for USB insertion, grabs a zip archive and extracts a specific logfile, reading the contents and checking for failures</p>
+    </div>
+    <div>
+        <h2>UDI Flasher</h2>
+        <p>A Rust CLI tool for getting the latest builds and flashing them to USB sticks for software installation</p>
+    </div>
+    <div>
+        <H2>Product Planner</H2>
+        <p>A Node webserver for product planning, counting and display of different products. This webserver also does takt time and alerts when workers are supposed to have breaks. This project also included some ESP32's and some push buttons to make a control box for those who prefer physical buttons instead of a web interface to increment the count.</p>
+    </div>
+    <div>
+        <h2>Warships Game</h2>
+        <p>Also tried my hands on creating some video games, by far the most complete one is ShipGirlGame(Not the final name that's for sure). It's basically a attempt at making a turn based strategy game and this was the basic concept. I've yet to really have any creative ideas to expand on this game</p>
+        <p><a id="play-warships">You can try it out here</a></p>
+    </div>
+    <div>
+        <h2>String Builder Library</h2>
+        <p><a href="https://github.com/Mariuspersen/sb">SB</a> is a single header style library for C for string manipulation and is what I used to build a basic <a href="https://github.com/Mariuspersen/reminder">reminder</a> application</p>
+    </div>
+    <div>
+        <h2>Zed - A text editor written in Zig</h2>
+        <p><a href="https://github.com/Mariuspersen/Zed">Zed</a> is a text editor I started on recently to explore Zig more. It now has the bare minimum required for a file editor, it can open and save files as well as arrow navigation.</p>
+    </div>
+    <div>
+        <h2>Spinning Wheel</h2>
+        <p>We have a insentive program at my current workplace to improve certain things, and we pick winners every month that receive some type of reward at the end. This was a way to pick the winner. <a id="spin-wheel">You can try it out here</a></p>
+    </div>
+    <div>
+        <h2>Current interests</h2>
+        <p>
+            I have taken the Zig pill, and honestly I dont really want to program in anything else anymore, it is so nice after you get over the speed bumps in the beginning.
+            On my <a href="https://github.com/Mariuspersen/">Github</a> I have a few clones of coreutils like cat to practise using these languages. 
+            C is really fun langugage to write code in, but can be annoying sometimes whenever it comes to memory allocation and working with strings, and to solve the latter I made a SB as mentioned above
+        </p>
+    </div>
+</div>
