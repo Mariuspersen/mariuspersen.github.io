@@ -207,6 +207,10 @@ div p {
     cursor: pointer;
 }
 
+.cv h2 a {
+    text-decoration: none;
+}
+
 #blog h2 {
     text-align: center;
     background-color: var(--secondary-background-color);
