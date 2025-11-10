@@ -1,6 +1,15 @@
 <h1>Hobby Projects</h1>
 <div class="cv">
     <div>
+        <h2><a href="https://github.com/Mariuspersen/Ztatic">Ztatic - Static Website Server Generator in Zig</a></h2>
+        <p>This has probably been one of the most functional projects I've worked on in a while and is actually in a state I would consider functionally useful.</p>
+        <p>It is incredily simple really, there is a single config file where a link to a github repo can be entered containing a static site is located,</p>
+        <p>Where the build.zig clones the repo puts it into assets, where some code generation happens and a giant switch case is made that also embeds all the files into the binary</p>
+        <p>If you are using the https branch it also embeds the public and private key, no external dependencies or anything</p>
+        <p>This makes it so you can host it on some embedded device with no storage, should also help with faster website loading etc, no filesystem reads or writes</p>
+        <p>There is also no dynamic allocations at all which is very cool and I'm sure embedded people would enjoy</p>
+    </div>
+    <div>
         <h2><a href="https://github.com/Mariuspersen/zig-uefi">UEFI Bootloader and bare metal programming</a></h2>
         <p>While this is far from finished, it is a working concept.</p>
         <p>Zig is honestly amazing here, UEFI bindings are already in the standard library and makes it super easy to make UEFI applications.</p>
